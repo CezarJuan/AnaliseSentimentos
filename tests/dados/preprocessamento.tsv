@@ -1,0 +1,50 @@
+# texto<TAB>tokens esperados separados por espaço (tabela de regressão do pré-processamento)
+# Mudar esta tabela muda o contrato treino/inferência: suba a versão em config.json.
+Péssimo, NÃO gostei	pessimo <pont> nao NEG_gostei
+@loja comprei 2 em https://ex.com/p	<user> comprei <num> em <url>
+amei 😍	amei <emo_pos>
+chegou rapido :D	chegou rapido <emo_pos>
+XD que engraçado	<emo_pos> que engracado
+olha https://site.com/a:/b	olha <url>
+te amo <3	te amo <emo_pos>
+atrasou :(.	atrasou <emo_neg> <pont>
+👎👎 nunca mais compro	<emo_neg> <emo_neg> nunca NEG_mais NEG_compro
+❤️❤️❤️	<emo_pos> <emo_pos> <emo_pos>
+Ótimo atendimento 👏🏼	otimo atendimento <emo_pos>
+kkkkkkk muito bom	<riso> muito bom
+rsrsrs adorei	<riso> adorei
+HAHAHA que isso	<riso> que isso
+muuuuito bom	muito bom
+lindoooo demaaais	lindo demais
+carro novo	carro novo
+adorei!!!	adorei <excl>
+serio???	serio <interr>
+ruim, caro	ruim <pont> caro
+sei la... talvez	sei la <pont> talvez
+vc n vai gostar mt	voce nao NEG_vai NEG_gostar muito
+tb achei mto bom	tambem achei muito bom
+nd a declarar	nada NEG_a NEG_declarar
+pq vc fez isso?	porque voce fez isso <interr>
+nao gostei	nao NEG_gostei
+nao gostei, mas o preco e bom	nao NEG_gostei <pont> mas o preco e bom
+nao e muito bom	nao NEG_e muito NEG_bom
+nao achei o produto bom	nao NEG_achei NEG_o NEG_produto bom
+nao gostei nada	nao NEG_gostei nada
+nunca recebi o produto!	nunca NEG_recebi NEG_o NEG_produto <excl>
+nem bom nem ruim	nem NEG_bom nem NEG_ruim
+jamais compraria de novo	jamais NEG_compraria NEG_de NEG_novo
+ninguem atende o telefone	ninguem NEG_atende NEG_o NEG_telefone
+O produto é bom, porém a entrega atrasou	o produto e bom <pont> porem a entrega atrasou
+entretanto funcionou bem	entretanto funcionou bem
+contudo vale a pena	contudo vale a pena
+super recomendo, entrega rapida	super recomendo <pont> entrega rapida
+nao é pouco bom	nao NEG_e pouco NEG_bom
+meio caro mas ok	meio caro mas ok
+quase perfeito	quase perfeito
+paguei R$ 199,90 e veio quebrado	paguei r <num> e veio quebrado
+nota 10!!!	nota <num> <excl>
+entrega em 3 dias úteis	entrega em <num> dias uteis
+ÉÉÉ AÇÚCAR À VONTADE	e acucar a vontade
+coração 💔 partido	coracao <emo_neg> partido
+eu n sei, talvez sim	eu nao NEG_sei <pont> talvez sim
+www.loja.com.br é golpe	<url> e golpe

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentimento"
+version = "0.1.0"
+description = "Análise de sentimentos local e de baixa latência para português do Brasil"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+sentimento = "sentimento.cli:main"
+
+[tool.setuptools]
+packages = ["sentimento"]
+
+[tool.setuptools.package-data]
+sentimento = ["recursos/*", "web/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m \"not bench\""
+markers = [
+    "bench: benchmark de latência e memória (rode com: pytest -m bench)",
+]

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Análise de Sentimentos</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/estilo.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <h1>Análise de sentimentos</h1>
+    <p class="subtitulo">Local e offline: nenhum texto sai desta máquina.</p>
+  </header>
+
+  <main>
+    <section class="cartao" aria-labelledby="titulo-analise">
+      <h2 id="titulo-analise">Analisar texto</h2>
+      <label for="texto" class="rotulo-campo">Texto</label>
+      <textarea id="texto" rows="4" spellcheck="true" autofocus
+                placeholder="Ex.: o produto chegou rápido, adorei!"
+                aria-describedby="dica-texto"></textarea>
+      <div class="linha-acoes">
+        <button id="analisar" type="button" class="botao-primario">Analisar</button>
+        <p id="dica-texto" class="dica">A análise acontece enquanto você digita. <kbd>Ctrl</kbd>+<kbd>Enter</kbd> analisa na hora e salva no histórico.</p>
+      </div>
+
+      <div id="resultado" class="resultado vazio">
+        <p id="resultado-vazio" class="dica">Digite um texto para ver o sentimento.</p>
+        <div id="resultado-conteudo" hidden>
+          <div class="resumo">
+            <p id="rotulo" class="rotulo"><span id="rotulo-icone" class="icone" aria-hidden="true"></span><strong id="rotulo-texto"></strong></p>
+            <dl class="metricas">
+              <div><dt>Confiança</dt><dd id="confianca"></dd></div>
+              <div><dt>Score</dt><dd id="score"></dd></div>
+              <div><dt>Ida e volta</dt><dd id="latencia"></dd></div>
+            </dl>
+          </div>
+          <div class="barra-bloco">
+            <div id="barra" class="barra" role="meter" aria-label="Score de sentimento"
+                 aria-valuemin="-1" aria-valuemax="1" aria-valuenow="0">
+              <span id="marcador" class="marcador"></span>
+            </div>
+            <div class="barra-escala" aria-hidden="true"><span>−1 negativo</span><span>0</span><span>positivo +1</span></div>
+          </div>
+          <h3 class="titulo-pequeno">O que pesou na decisão</h3>
+          <p id="destaque" class="destaque"></p>
+          <ul id="tokens" class="tokens"></ul>
+        </div>
+        <p id="erro" class="erro" role="alert" hidden></p>
+      </div>
+      <p id="anuncio" class="so-leitor" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <section class="cartao" aria-labelledby="titulo-lote">
+      <h2 id="titulo-lote">Lote por arquivo</h2>
+      <p class="dica">Arquivo <code>.txt</code> (um texto por linha) ou <code>.csv</code> (coluna <code>texto</code>, ou a primeira coluna).</p>
+      <div class="linha-acoes">
+        <label class="botao-secundario arquivo">
+          <span>Escolher arquivo…</span>
+          <input id="arquivo" type="file" accept=".txt,.csv,text/plain,text/csv">
+        </label>
+        <button id="baixar" type="button" class="botao-secundario" disabled>Baixar CSV</button>
+      </div>
+      <p id="lote-status" class="dica" aria-live="polite"></p>
+      <div class="tabela-rolagem" id="tabela-bloco" hidden>
+        <table id="tabela">
+          <caption class="so-leitor">Resultados do lote</caption>
+          <thead><tr><th scope="col">Texto</th><th scope="col">Rótulo</th><th scope="col" class="num">Score</th><th scope="col" class="num">Confiança</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="titulo-historico">
+      <div class="linha-titulo">
+        <h2 id="titulo-historico">Histórico da sessão</h2>
+        <button id="limpar" type="button" class="botao-secundario">Limpar histórico</button>
+      </div>
+      <p id="historico-vazio" class="dica">Nenhuma análise salva. Use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> ou o botão Analisar.</p>
+      <ol id="historico" class="historico"></ol>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p id="status" class="status">Conectando ao servidor…</p>
+    <button id="tema" type="button" class="botao-secundario">Usar tema escuro</button>
+  </footer>
+</body>
+</html>
